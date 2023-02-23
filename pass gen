@@ -1,0 +1,28 @@
+import random
+import string
+
+def generate_password(length):
+    """
+    This function generates a secure password of the specified length.
+    """
+    password_characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(password_characters) for i in range(length))
+    return password
+
+while True:
+    try:
+        num_of_passwords = int(input("How many passwords would you like to generate? "))
+        length_of_passwords = int(input("How long should the passwords be? "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
+
+passwords = []
+
+for i in range(num_of_passwords):
+    passwords.append(generate_password(length_of_passwords))
+
+print("Generated passwords:")
+for password in passwords:
+    print(password)
+
